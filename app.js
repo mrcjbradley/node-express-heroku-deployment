@@ -3,7 +3,7 @@ const app = express();
 const path = require("path");
 const fetch = require("node-fetch");
 const PORT = process.env.PORT || 8000; // process.env accesses heroku's environment variables
-
+const SECRETKEY = process.env.SECRETKEY || require("./secretkey.js");
 app.use(express.static("dist"));
 
 app.get("/", (request, res) => {
@@ -14,7 +14,7 @@ app.get("/", (request, res) => {
 app.get("/books/:isbn", (request, response) => {
   // make api call using fetch
   fetch(
-    `http://openlibrary.org/api/books?bibkeys=ISBN:${request.params.isbn}&format=json&jscmd=data`
+    `http://openlibrary.org/api/books?bibkeys=${SECRETKEY}:${request.params.isbn}&format=json&jscmd=data`
   )
     .then(response => {
       return response.text();

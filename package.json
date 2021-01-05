@@ -22,7 +22,7 @@
   "author": "mrcjbradley",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.18.1",
+    "axios": "^0.21.1",
     "express": "^4.15.3",
     "node-fetch": "^1.7.3",
     "@babel/core": "^7.6.4",
